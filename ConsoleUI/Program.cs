@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,8 +48,49 @@ namespace ConsoleUI
 
             // Call each of the drive methods for one car and one motorcycle
 
-            #endregion            
-            Console.ReadLine();
+            #endregion
+
+
+
+            List<Vehicle> vehicles = new List<Vehicle>();
+
+            Car car = new Car() {Year = "2022", Make = "Tesla", Model = "Model 3", HasTrunk = "Yes"};
+            Motorcycle motorcycle = new Motorcycle() { Year = "2023", Make = "Harley-Davidson", Model = "Road King", HasSideCart = "Yes" };
+            
+
+            Vehicle motorcycle2 = new Motorcycle() { Year = "2000", Make = "Harley-Davidson", Model = "XLH Sportster® 883", HasSideCart = "No" };
+            Vehicle car2 = new Car() { Year = "2023", Make = "Chevrolet", Model = "Tahoe", HasTrunk = "Yes" };
+            
+            Car car3 = new Car() { Year = "2014", Make = "Honda", Model = "Hatchback", HasTrunk = "Yes" };
+            Motorcycle motorcycle3 = new Motorcycle() { Year = "2020", Make = "Yamaha", Model = "Model YZF-R6", HasSideCart = "No" };
+
+
+            vehicles.Add(car);
+            vehicles.Add(motorcycle);
+            vehicles.Add(car2);
+            vehicles.Add(motorcycle2);
+            vehicles.Add(car3);
+            vehicles.Add(motorcycle3);
+
+
+
+            foreach (var vehicle in vehicles)
+            {
+
+                Console.WriteLine();
+                Console.WriteLine("----------------------------------------------------------------------------");
+                Console.WriteLine(vehicle.Make);
+                Console.WriteLine(vehicle.Model);
+                Console.WriteLine(vehicle.Year);
+                vehicle.DriveVirtual();
+                vehicle.DriveAbstract();
+                Console.WriteLine("----------------------------------------------------------------------------");
+                Console.WriteLine();
+
+            }
+
+
+
         }
     }
 }
